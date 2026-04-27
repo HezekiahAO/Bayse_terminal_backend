@@ -1,0 +1,12 @@
+# Development and test dependencies for AfriSignal.
+# Use this alongside requirements.txt for linting, testing, and local development.
+
+-r requirements.txt
+
+# Testing
+pytest>=8.4,<9.0
+pytest-asyncio>=0.22,<0.23
+pytest-cov>=4.0,<5.0
+
+# Linting / formatting
+ruff>=0.0.260,<0.1
