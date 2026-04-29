@@ -8,7 +8,7 @@ from sqlalchemy import String, Float, DateTime, Boolean, Integer, Enum as SQLEnu
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base
-
+from sqlalchemy import Boolean, DateTime, Enum, Float, Index, String, Text
 
 class SignalStatus(str, Enum):
     """Signal processing status."""
@@ -35,13 +35,15 @@ class MacroSignal(Base):
     country_code: Mapped[str] = mapped_column(String(3), nullable=False, index=True)
     indicator: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
     source: Mapped[DataSource] = mapped_column(
-        SQLEnum(DataSource), nullable=False, default=DataSource.WORLD_BANK
+        String(50), nullable=False
     )
     value: Mapped[float] = mapped_column(Float, nullable=False)
     unit: Mapped[str | None] = mapped_column(String(50), nullable=True)
     observation_date: Mapped[datetime] = mapped_column(DateTime, nullable=False, index=True)
     status: Mapped[SignalStatus] = mapped_column(
-        SQLEnum(SignalStatus), nullable=False, default=SignalStatus.RAW
+        String(50),
+        default=SignalStatus.RAW,
+        nullable=False,
     )
 
     # Anomaly detection results

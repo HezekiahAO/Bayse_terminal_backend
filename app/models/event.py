@@ -29,10 +29,13 @@ class PredictionEvent(Base):
     title: Mapped[str] = mapped_column(String(512), nullable=False)
     description: Mapped[str | None] = mapped_column(String(2048), nullable=True)
     source_signal_id: Mapped[int] = mapped_column(Integer, nullable=False, index=True)
-
     status: Mapped[EventStatus] = mapped_column(
-        SQLEnum(EventStatus), nullable=False, default=EventStatus.DRAFT
+        String(50),
+        default=EventStatus.DRAFT,
+        nullable=False,
+        index=True,
     )
+    
     opening_probability: Mapped[float | None] = mapped_column(Float, nullable=True)
     resolution_date: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
 
