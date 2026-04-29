@@ -35,7 +35,7 @@ class PredictionEvent(Base):
         nullable=False,
         index=True,
     )
-    
+
     opening_probability: Mapped[float | None] = mapped_column(Float, nullable=True)
     resolution_date: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
 
