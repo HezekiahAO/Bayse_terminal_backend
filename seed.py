@@ -118,10 +118,11 @@ async def main():
         print(f"\n  ANOMALIES DETECTED (these will become Bayse events):")
         for s in anomalies:
             direction = "above" if (s.z_score or 0) > 0 else "below"
+            rolling_mean_str = f"{s.rolling_mean:.2f}" if s.rolling_mean is not None else "N/A"
             print(
                 f"  • {s.country_code} | {s.indicator} | "
                 f"value={s.value:.2f} | z={s.z_score:.2f} "
-                f"({direction} rolling mean of {s.rolling_mean:.2f if s.rolling_mean else 'N/A'})"
+                f"({direction} rolling mean of {rolling_mean_str})"
             )
     else:
         print("  No anomalies detected in this dataset.")

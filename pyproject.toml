@@ -1,8 +1,0 @@
-﻿[tool.pytest.ini_options]
-pythonpath = ["."]
-
-[tool.pyright]
-pythonVersion = "3.12"
-pythonPlatform = "Windows"
-include = ["app"]
-extraPaths = ["."]
