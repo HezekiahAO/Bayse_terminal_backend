@@ -1,6 +1,6 @@
 """
-AfriSignal — Main FastAPI Application
-======================================
+IfaQuant — Main FastAPI Application
+===================================
 Entry point that:
   - Configures the FastAPI app (CORS, docs, versioning)
   - Registers all routers (REST API + WebSocket)
@@ -24,10 +24,10 @@ settings = get_settings()
 
 # ── App instance ─────────────────────────────────────────────────────────────
 app = FastAPI(
-    title="AfriSignal",
+    title="IfaQuant",
     description=(
-        "African macroeconomic signal engine for Bayse prediction markets. "
-        "Monitors African economic indicators, detects anomalies, and auto-generates "
+        "IfaQuant is an African macroeconomic signal engine for Bayse prediction markets. "
+        "It monitors African economic indicators, detects anomalies, and auto-generates "
         "prediction market events with AI-priced opening probabilities."
     ),
     version="1.0.0",
@@ -52,7 +52,7 @@ app.include_router(ws_router)    # WebSocket: /ws
 # ── Lifecycle ─────────────────────────────────────────────────────────────────
 @app.on_event("startup")
 async def startup():
-    logger.info("AfriSignal starting up...")
+    logger.info("IfaQuant starting up...")
     # Start background tasks in the event loop
     asyncio.create_task(redis_listener())  # Redis → WebSocket fan-out
     asyncio.create_task(periodic_ping())   # 30s keepalive pings
@@ -61,7 +61,7 @@ async def startup():
 
 @app.on_event("shutdown")
 async def shutdown():
-    logger.info("AfriSignal shutting down...")
+    logger.info("IfaQuant shutting down...")
 
 
 # ── Health check ──────────────────────────────────────────────────────────────
@@ -73,7 +73,7 @@ async def health():
     """
     return {
         "status": "ok",
-        "service": "AfriSignal",
+        "service": "IfaQuant",
         "version": "1.0.0",
         "environment": settings.APP_ENV,
     }
@@ -82,7 +82,7 @@ async def health():
 @app.get("/", tags=["Health"])
 async def root():
     return {
-        "service": "AfriSignal",
+        "service": "IfaQuant",
         "docs": "/docs",
         "websocket": "ws://localhost:8000/ws",
         "api": "/api/v1",

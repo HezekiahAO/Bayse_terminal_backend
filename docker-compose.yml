@@ -9,7 +9,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: afrisignal
+      POSTGRES_DB: ifaquant
     ports:
       - "5432:5432"
     volumes:
@@ -32,14 +32,14 @@ services:
 
   # ── Application ────────────────────────────────────────────────────────────
 
-  api:
+  ifaquant-api:
     build: .
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: postgresql+asyncpg://postgres:password@postgres:5432/afrisignal
-      SYNC_DATABASE_URL: postgresql://postgres:password@postgres:5432/afrisignal
+      DATABASE_URL: postgresql+asyncpg://postgres:password@postgres:5432/ifaquant
+      SYNC_DATABASE_URL: postgresql://postgres:password@postgres:5432/ifaquant
       REDIS_URL: redis://redis:6379/0
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
       NEWS_API_KEY: ${NEWS_API_KEY}
@@ -52,12 +52,12 @@ services:
     volumes:
       - .:/app          # Hot reload in development
 
-  worker:
+  ifaquant-worker:
     build: .
     command: celery -A app.worker.tasks.celery_app worker --loglevel=info --concurrency=2
     environment:
-      DATABASE_URL: postgresql+asyncpg://postgres:password@postgres:5432/afrisignal
-      SYNC_DATABASE_URL: postgresql://postgres:password@postgres:5432/afrisignal
+      DATABASE_URL: postgresql+asyncpg://postgres:password@postgres:5432/ifaquant
+      SYNC_DATABASE_URL: postgresql://postgres:password@postgres:5432/ifaquant
       REDIS_URL: redis://redis:6379/0
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
       NEWS_API_KEY: ${NEWS_API_KEY}
@@ -69,12 +69,12 @@ services:
     volumes:
       - .:/app
 
-  beat:
+  ifaquant-beat:
     build: .
     command: celery -A app.worker.tasks.celery_app beat --loglevel=info
     environment:
-      DATABASE_URL: postgresql+asyncpg://postgres:password@postgres:5432/afrisignal
-      SYNC_DATABASE_URL: postgresql://postgres:password@postgres:5432/afrisignal
+      DATABASE_URL: postgresql+asyncpg://postgres:password@postgres:5432/ifaquant
+      SYNC_DATABASE_URL: postgresql://postgres:password@postgres:5432/ifaquant
       REDIS_URL: redis://redis:6379/0
     depends_on:
       - redis

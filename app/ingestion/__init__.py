@@ -1,1 +1,1 @@
-"""Ingestion package for AfriSignal."""
+"""Ingestion package for IfaQuant."""

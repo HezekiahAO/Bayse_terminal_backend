@@ -1,7 +1,7 @@
 """
 Celery App & Tasks
 ==================
-Celery powers AfriSignal's background processing.
+Celery powers IfaQuant's background processing.
 
 How Celery works in 3 sentences:
   "Beat" is a scheduler — it wakes up at configured times and puts task
@@ -47,7 +47,7 @@ settings = get_settings()
 #   backend = where task results are stored  (optional, used for monitoring)
 #
 celery_app = Celery(
-    "afrisignal",
+    "ifaquant",
     broker=settings.REDIS_URL,
     backend=settings.REDIS_URL,
 )
@@ -313,7 +313,7 @@ def generate_event_for_signal(self, signal_id: int):
 # "Best effort" means: if Redis is down, we log and move on.
 # We never want a WebSocket notification failure to crash the ingestion pipeline.
 
-REDIS_WS_CHANNEL = "afrisignal:ws"
+REDIS_WS_CHANNEL = "ifaquant:ws"
 
 
 def _get_redis() -> sync_redis.Redis:

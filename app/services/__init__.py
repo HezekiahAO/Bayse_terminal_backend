@@ -1,1 +1,1 @@
-"""Service package for AfriSignal."""
+"""Service package for IfaQuant."""

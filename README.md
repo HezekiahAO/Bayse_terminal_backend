@@ -1,4 +1,4 @@
-# AfriSignal 🌍
+# IfaQuant 🌍
 
 > African macroeconomic signal engine for Bayse prediction markets.  
 > Monitors African economic indicators, detects anomalies, and auto-generates  
@@ -167,7 +167,7 @@ Opening probability = α / (α + β)
 
 ### Redis Fan-out WebSocket Pattern
 ```
-Celery task → redis.publish("afrisignal:ws", payload)
+Celery task → redis.publish("ifaquant:ws", payload)
 FastAPI startup → asyncio.create_task(redis_listener())
 redis_listener → manager.broadcast(payload) → all WS clients
 ```
@@ -209,7 +209,7 @@ make logs        # Tail all Docker logs
 ### 1. Install dependencies
 
 ```powershell
-Set-Location 'd:\Code 2026\afrisignal'
+Set-Location 'd:\Code 2026\IfaQuant'
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
 ```
@@ -271,7 +271,7 @@ If the app is running, the health endpoint returns:
 ```json
 {
   "status": "ok",
-  "service": "AfriSignal",
+  "service": "IfaQuant",
   "version": "1.0.0",
   "environment": "development"
 }
@@ -298,7 +298,7 @@ The `/api/v1/events` endpoint returns a JSON list of events:
 ## Project Structure
 
 ```
-afrisignal/
+IfaQuant/
 ├── app/
 │   ├── main.py                    # FastAPI app entry point
 │   ├── config.py                  # Pydantic settings

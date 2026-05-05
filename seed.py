@@ -1,6 +1,6 @@
 """
-seed.py — Populate AfriSignal database with real African economic data
-======================================================================
+seed.py — Populate IfaQuant database with real African economic data
+===================================================================
 
 What this script does:
   1. Connects to your0 000l0ocal Postgres database
@@ -21,7 +21,7 @@ sys.path.insert(0, ".")
 
 async def main():
     print("\n" + "=" * 60)
-    print("  AfriSignal Database Seeder")
+    print("  IfaQuant Database Seeder")
     print("=" * 60)
 
     # ── 1. Connect to database ────────────────────────────────────

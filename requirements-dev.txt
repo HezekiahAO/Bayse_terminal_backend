@@ -1,4 +1,4 @@
-# Development and test dependencies for AfriSignal.
+# Development and test dependencies for IfaQuant.
 # Use this alongside requirements.txt for linting, testing, and local development.
 
 -r requirements.txt

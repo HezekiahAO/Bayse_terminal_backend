@@ -9,7 +9,7 @@ Algorithm:
   3. Compute z = (current_value - mean) / std
   4. Flag as anomaly if |z| >= threshold (default 2.0 = ~95th percentile)
 
-This is the quant backbone of AfriSignal — think of it as a lightweight
+This is the quant backbone of IfaQuant — think of it as a lightweight
 alternative to more complex approaches like Bollinger Bands or CUSUM, but
 deliberately simple enough to be explainable to a non-quant Bayse user.
 """

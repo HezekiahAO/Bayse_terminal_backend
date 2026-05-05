@@ -133,7 +133,7 @@ class IMFClient:
             timeout=30.0,
             headers={
                 "Accept": "application/json",
-                "User-Agent": "AfriSignal/1.0 (prediction-market-research)",
+                "User-Agent": "IfaQuant/1.0 (prediction-market-research)",
             },
         )
 

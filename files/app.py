@@ -1,5 +1,5 @@
 """
-app.py — Root-level entry point for AfriSignal
+app.py — Root-level entry point for IfaQuant
 ===============================================
 This file lets you start the server with simply:
 
@@ -21,12 +21,12 @@ The distinction matters because uvicorn needs to import app/main.py as a module
 uvicorn.run() for convenience.
 
 Note on the name collision:
-  This file is named app.py at the ROOT of the project (afrisignal/app.py).
+  This file is named app.py at the ROOT of the project (IfaQuant/app.py).
   The app/ FOLDER also starts with "app" but is a package (has __init__.py).
   Python resolves these differently:
     - "import app"     -> finds app/ folder (the package)
     - running app.py   -> runs this file directly
-  There is no collision as long as you run this from the afrisignal/ root.
+  There is no collision as long as you run this from the IfaQuant project root.
 """
 import uvicorn
 
