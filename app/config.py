@@ -6,8 +6,8 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
     # Database
-    DATABASE_URL: str = "postgresql+asyncpg://postgres:password@localhost:5432/afrisignal"
-    SYNC_DATABASE_URL: str = "postgresql://postgres:password@localhost:5432/afrisignal"
+    DATABASE_URL: str = "postgresql+asyncpg://postgres:password@localhost:5432/ifaquant"
+    SYNC_DATABASE_URL: str = "postgresql://postgres:password@localhost:5432/ifaquant"
 
     # Redis
     REDIS_URL: str = "redis://localhost:6379/0"

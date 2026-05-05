@@ -1,4 +1,4 @@
-# Runtime dependencies for AfriSignal.
+# Runtime dependencies for IfaQuant.
 # Install this file into the virtual environment before running the app.
 
 # Core web framework and settings
