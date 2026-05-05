@@ -277,11 +277,20 @@ If the app is running, the health endpoint returns:
 }
 ```
 
-The `/api/v1/signals` endpoint returns a JSON list of signals:
+The `/api/v1/signals` endpoint returns a JSON list of signals. When the database contains data, it returns real signal objects rather than an empty list:
 
 ```json
 {
-  "signals": []
+  "signals": [
+    {
+      "id": 1,
+      "country_code": "NG",
+      "indicator": "inflation_rate",
+      "signal_value": 32.7,
+      "z_score": 2.84,
+      "timestamp": "2026-05-05T12:34:56Z"
+    }
+  ]
 }
 ```
 
